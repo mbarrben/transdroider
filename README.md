@@ -81,7 +81,7 @@ An example sheet could look like:
 
 * Python 2.7.2 (older versions not tested)
 * `xlwt` and `xlrd` from Excel library, found at http://www.python-excel.org/
-* Modules used: `optparse`, `codecs`, `os`, `glob xml.dom.minidom`
+* Modules used: `optparse`, `codecs`, `os`, `glob`, `xml.dom.minidom`
 
 ## Developed by
 
