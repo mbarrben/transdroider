@@ -28,6 +28,7 @@ def getCleanString(input):
 	input = input.replace('...', '&#8230;')
 	input = input.replace(u'…', '&#8230;')
 	input = input.replace('"', '\"')
+	input = ' '.join(input.split()) # replaces multiple spaces with a single space
 	
 	# write here any usual replace that you need to perform
 	
