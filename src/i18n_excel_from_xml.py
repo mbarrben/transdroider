@@ -3,13 +3,14 @@ import os
 import glob
 import codecs
 import xlwt # Excel library from http://www.python-excel.org/
-from optparse import OptionParser
 import xml.dom.minidom
+import argparse
+
 
 def getOptions():
-	parser = OptionParser()
-	parser.add_option("-d", "--directory", help="Android project root directory.", metavar=FILE)
-	parser.add_option("-o", "--output", help="Output excel file.")
+	parser = argparse.ArgumentParser(description='Excel from XML')
+	parser.add_argument('-d', '--directory', help='Android project root directory.',dest='filename', metavar=FILE)
+	parser.add_argument('-o', '--output', help='Output excel file.')
 	return parser.parse_args()
 
 def getNodeValue(node):
@@ -30,7 +31,7 @@ def getNodeValueByKey(nodes, key):
 
 def getNodeList(xmlFile):
 	xmldoc = xml.dom.minidom.parse(xmlFile)
-	return xmldoc.getElementsByTagName('string') 
+	return xmldoc.getElementsByTagName('string')
 
 def initWorkBook():
 	return xlwt.Workbook(encoding='utf-8')
@@ -88,7 +89,7 @@ if __name__ == '__main__':
 
 	book = initWorkBook()
 	sheet = getSheet(book)
-	
+
 	masterNodeList = getMasterNodeList(options.directory)
 	writeMasterNodeList(sheet, masterNodeList)
 
