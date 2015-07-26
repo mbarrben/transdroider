@@ -9,7 +9,7 @@ import argparse
 
 def getOptions():
 	parser = argparse.ArgumentParser(description='Excel from XML')
-	parser.add_argument('-d', '--directory', help='Android project root directory.',dest='filename', metavar=FILE)
+	parser.add_argument('-d', '--directory', help='Android project root directory.')
 	parser.add_argument('-o', '--output', help='Output excel file.')
 	return parser.parse_args()
 
@@ -85,8 +85,7 @@ def getLangCode(xmlFile):
 	return tail.replace('values-', '')
 
 if __name__ == '__main__':
-	(options, args) = getOptions()
-
+	options = getOptions()
 	book = initWorkBook()
 	sheet = getSheet(book)
 
